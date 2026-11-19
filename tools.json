@@ -1,0 +1,56 @@
+[
+  {
+    "name": "mx_law_search",
+    "description": "Search Mexican federal laws and codes by Spanish words in their name (e.g. \"protección de datos personales\", \"amparo\", \"código penal federal\"). Searches both the list of laws in force (vigentes) and the list of abrogated laws (abrogadas), and says which list each one is on. Returns law_id (e.g. \"lfpdppp\", or \"abro:LAmp_abro\" for an abrogated law), name, status as the publisher lists it, the DOF date of the original publication and of the last reform (or of the abrogation). Pair with mx_law_get for the text.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Spanish words in the law name, e.g. \"datos personales\""
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "vigente",
+            "abrogada",
+            "all"
+          ],
+          "description": "Which list to search (default all)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum results (default 15, max 50)"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "mx_law_get",
+    "description": "Fetch one Mexican federal law or code by law_id (from mx_law_search, e.g. \"lfpdppp\", \"cpeum\" for the Constitution) or by exact name. Returns the name, which list it is on (vigente or abrogada, as the publisher lists it), original DOF publication date, last reform or abrogation date, any note the list carries, the reform decrees with their DOF dates, and the text. Pass article (e.g. \"7\" or \"7 Bis\") for one article, with any Se deroga marker the text carries; otherwise text is capped at max_chars. The text is read from the publisher's PDF, so tables are flattened.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "law_id": {
+          "type": "string",
+          "description": "Law id from mx_law_search, e.g. \"lfpdppp\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Exact law name, in place of law_id"
+        },
+        "article": {
+          "type": "string",
+          "description": "Article number, e.g. \"7\" or \"7 Bis\""
+        },
+        "max_chars": {
+          "type": "number",
+          "description": "Cap on text when no article is given (default 12000, max 60000)"
+        }
+      }
+    }
+  }
+]

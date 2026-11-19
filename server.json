@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/mexico-law",
+  "title": "Mexico Law",
+  "description": "Mexico law -- federal laws and codes as published by the Chamber of Deputies (the in-force 'Leyes…",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/mexico-law",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-mexico-law",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/mexico-law/mcp"
+    }
+  ]
+}

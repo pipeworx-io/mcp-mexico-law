@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-mexico-law",
+  "version": "0.1.0",
+  "description": "Mexico law -- federal laws and codes as published by the Chamber of Deputies (the in-force 'Leyes Federales Vigentes' list, the list of abrogated federal laws, and each law's official text and reform record).",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-mexico-law": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "mexico-law"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-mexico-law.git"
+  },
+  "mcpName": "io.github.pipeworx-io/mexico-law",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "mexico-law",
+    "gatewaySlug": "mexico-law",
+    "sourceHash": "v1-094453506defd337727b5c15c1d2179e409c3067059a7a489cb920f7dcffb3b9",
+    "sourceCommit": "afcaf44429ea5fe1396ff1733e1b8651aeefcde8"
+  }
+}
